@@ -1,5 +1,5 @@
 import { redirect } from "next/navigation";
 
 export default function Home() {
-  return redirect("/client/contact");
+  return redirect("/contact");
 }

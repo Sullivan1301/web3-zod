@@ -1,4 +1,4 @@
-import React from 'react';
+"use client"
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -11,7 +11,7 @@ const formSchema = z.object({
  message: z.string()
 });
 
-function FormContact() {
+export default function FormContact() {
  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
@@ -57,4 +57,3 @@ function FormContact() {
  );
 }
 
-export default FormContact;
