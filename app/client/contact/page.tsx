@@ -29,7 +29,30 @@ function FormContact() {
 
  return (
     <form onSubmit={handleSubmit(onSubmit)} className="mx-auto mt-8">
-      {/* Form fields and submit button remain unchanged */}
+      <div className="mb-4">
+        <label className="block mb-1">Name</label>
+        <input {...register("name")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
+        {errors.name && <p className="text-red-700">{errors.name.message}</p>}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-1">Email</label>
+        <input {...register("email")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
+        {errors.email && <p className="text-red-700">{errors.email.message}</p>}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-1">Your Mobile Number</label>
+        <input type="text" {...register("number")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
+        {errors.number && <p className="text-red-700">{errors.number.message}</p>}
+      </div>
+
+      <div className="mb-4">
+        <label className="block mb-1">Your message</label>
+        <textarea {...register("message")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
+      </div>
+
+      <button type="submit" className="text-black py-2 px-4 rounded hover:border-blue-900 focus:outline-none font-semibold items-center">Submit</button>
     </form>
  );
 }
