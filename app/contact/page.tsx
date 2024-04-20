@@ -1,4 +1,5 @@
 "use client"
+import React from 'react';
 import { SubmitHandler, useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
@@ -15,10 +16,10 @@ export default function FormContact() {
  const { register, handleSubmit, formState: { errors } } = useForm({
     resolver: zodResolver(formSchema),
     defaultValues: {
-      name: "Sullivan",
-      email: "sullivan@gmail.com",
-      number: "+261341060802",
-      message: "Here your message",
+      name: "",
+      email: "",
+      number: "",
+      message: "",
     },
  });
   
@@ -28,31 +29,33 @@ export default function FormContact() {
  };
 
  return (
-    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto mt-8">
-      <div className="mb-4">
+    <form onSubmit={handleSubmit(onSubmit)} className="mx-auto mt-8 items-center justify-center p-12">
+      <div className='mb-4 w-full mx-auto  max-w-[600px]'>
+      <div className="mb-4 mx-auto w-full max-w-[550px]">
         <label className="block mb-1">Name</label>
         <input {...register("name")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
         {errors.name && <p className="text-red-700">{errors.name.message}</p>}
       </div>
 
-      <div className="mb-4">
+      <div className="mb-4 mx-auto w-full max-w-[550px]">
         <label className="block mb-1">Email</label>
         <input {...register("email")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
         {errors.email && <p className="text-red-700">{errors.email.message}</p>}
       </div>
 
-      <div className="mb-4">
+      <div className="mb-4 mx-auto w-full max-w-[550px]">
         <label className="block mb-1">Your Mobile Number</label>
         <input type="text" {...register("number")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
         {errors.number && <p className="text-red-700">{errors.number.message}</p>}
       </div>
 
-      <div className="mb-4">
+      <div className="mb-4 mx-auto w-full max-w-[550px]">
         <label className="block mb-1">Your message</label>
         <textarea {...register("message")} className="w-full px-3 py-2 border rounded focus:outline-none focus:border-blue-950" />
       </div>
 
-      <button type="submit" className="text-black py-2 px-4 rounded hover:border-blue-900 focus:outline-none font-semibold items-center">Submit</button>
+      <button type="submit" className="mx-[250px] hover:bg-blue-700 rounded-md bg-blue-900 py-3 px-8 text-base font-semibold text-white outline-none">Submit</button>
+      </div>
     </form>
  );
 }
